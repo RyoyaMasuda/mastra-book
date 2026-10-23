@@ -10,8 +10,8 @@ export const PLAN_MODELS = {
 } as const;
 
 export const PLAN_IMAGE_MODELS = {
-  free: "google/gemini-3.1-flash-image",
-  pro: "google/gemini-3-pro-image",
+  free: "stability.stable-image-core-v1:1",
+  pro: "stability.stable-image-ultra-v1:1",
 } as const;
 
 export type Plan = keyof typeof PLANS;
