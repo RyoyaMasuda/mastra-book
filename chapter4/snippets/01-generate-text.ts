@@ -2,19 +2,15 @@
 // generateTextによる一括生成
 import "dotenv/config";
 import { generateText } from "ai";
-import { createGoogleGenerativeAI } from "@ai-sdk/google";
+import { haiku } from "./bedrock.js";
 
-const google = createGoogleGenerativeAI({
-  apiKey: process.env.GOOGLE_GENERATIVE_AI_API_KEY,
-});
-
-// Geminiを使ってテキスト回答を一括で生成
+// Bedrock（Claude）を使ってテキスト回答を一括で生成
 async function runGenerateText() {
   const { text } = await generateText({
-    model: google("gemini-3.5-flash"),
+    model: haiku,
     prompt: "AI SDKとは何ですか？",
   });
   console.log(await text);
 }
 
-export { google, runGenerateText };
+export { haiku, runGenerateText };

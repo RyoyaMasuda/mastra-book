@@ -1,11 +1,12 @@
 // 第3章 3.1 ストリーミング - 原稿 L29-66
 import { Agent } from "@mastra/core/agent";
+import { haiku } from "./bedrock";
 
 const agent = new Agent({
   id: "demo",
   name: "Demo",
   instructions: "demo",
-  model: "google/gemini-3.5-flash",
+  model: haiku,
 });
 
 // L29-36: textStream パターン

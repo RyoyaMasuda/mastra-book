@@ -2,13 +2,14 @@
 import { Agent } from "@mastra/core/agent";
 import type { Processor } from "@mastra/core/processors";
 import type { MastraDBMessage } from "@mastra/core/agent";
+import { haiku } from "./bedrock";
 
 // L94-107: プロセッサを設定したエージェント
 const agent = new Agent({
   id: "safe-agent",
   name: "Safe Agent",
   instructions: "あなたは親切なアシスタントです。",
-  model: "google/gemini-3.5-flash",
+  model: haiku,
   inputProcessors: [
     // 入力の正規化やインジェクション対策など
   ],

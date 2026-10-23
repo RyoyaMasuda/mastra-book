@@ -1,4 +1,5 @@
 import { Agent } from "@mastra/core/agent";
+import { haiku } from "../bedrock";
 
 export const learningExtractionAgent = new Agent({
   id: "learning-extraction-agent",
@@ -21,5 +22,5 @@ export const learningExtractionAgent = new Agent({
     "learning": "コンテンツから得られた重要な洞察（文字列）",
     "followUpQuestions": ["フォローアップ質問（最大1つ）"]
   }`,
-  model: "google/gemini-3.5-flash",
+  model: haiku,
 });

@@ -1,4 +1,5 @@
 import { Agent } from "@mastra/core/agent";
+import { haiku } from "../bedrock";
 
 export const evaluationAgent = new Agent({
   id: "evaluation-agent",
@@ -24,5 +25,5 @@ export const evaluationAgent = new Agent({
     "reason": "決定の簡潔な説明"
   }
   `,
-  model: "google/gemini-3.5-flash",
+  model: haiku,
 });

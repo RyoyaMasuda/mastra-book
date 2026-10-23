@@ -2,9 +2,10 @@ import { runEvals } from "@mastra/core/evals";
 import { createAnswerRelevancyScorer } from "@mastra/evals/scorers/prebuilt";
 
 import { imageSupportAgent } from "../mastra/agents/image-support-agent";
+import { haiku } from "../lib/bedrock";
 
 const relevancyScorer = createAnswerRelevancyScorer({
-  model: "google/gemini-3.1-flash-lite",
+  model: haiku,
 });
 
 (async () => {

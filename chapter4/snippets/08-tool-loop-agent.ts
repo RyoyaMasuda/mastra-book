@@ -2,7 +2,7 @@
 // （セットアップコードは前のコード例と同じ）
 import { ToolLoopAgent, stepCountIs, tool } from "ai";
 import { z } from "zod";
-import { google } from "./01-generate-text.js";
+import { haiku } from "./bedrock.js";
 
 // getAccountInfoTool の定義は原稿では省略されているため、
 // 検証用にダミーで定義する
@@ -17,7 +17,7 @@ const getAccountInfoTool = tool({
 });
 
 const supportAgent = new ToolLoopAgent({
-  model: google("gemini-3.5-flash"),
+  model: haiku,
   callOptionsSchema: z.object({
     userId: z.string(),
     accountType: z.enum(["free", "pro", "enterprise"]),

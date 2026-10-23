@@ -2,6 +2,7 @@ import { Agent } from "@mastra/core/agent";
 import { createVectorQueryTool } from "@mastra/rag";
 import { ModelRouterEmbeddingModel } from "@mastra/core/llm";
 import { LIBSQL_PROMPT } from "@mastra/libsql";
+import { haiku } from "../bedrock";
 
 const ragTool = createVectorQueryTool({
   vectorStoreName: "libSqlVector",
@@ -20,6 +21,6 @@ export const ragAgent = new Agent({
 検索結果に含まれる情報のみに基づいて回答し、情報が見つからない場合はその旨を正直に伝えてください。
 回答の根拠となったドキュメントのソース情報も可能な限り含めてください。
 ${LIBSQL_PROMPT}`,
-  model: "google/gemini-3.5-flash",
+  model: haiku,
   tools: { ragTool },
 });

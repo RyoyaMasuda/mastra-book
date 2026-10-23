@@ -1,13 +1,14 @@
 // 第3章 3.4 マルチエージェント - 原稿 L244-281, L308-331
 import { Agent } from "@mastra/core/agent";
 import { MastraClient } from "@mastra/client-js";
+import { haiku } from "./bedrock";
 
 // L244-262: サブエージェントの定義
 const researchAgent = new Agent({
   id: "research-agent",
   name: "Research Agent",
   description: "事実調査に特化し、箇条書きで結果を返す",
-  model: "google/gemini-3.5-flash",
+  model: haiku,
   instructions: "事実を調査し、箇条書きで報告してください。",
 });
 
@@ -15,7 +16,7 @@ const writingAgent = new Agent({
   id: "writing-agent",
   name: "Writing Agent",
   description: "調査結果をレポート形式の文章に変換する",
-  model: "google/gemini-3.5-flash",
+  model: haiku,
   instructions: "素材を読みやすいレポートにまとめてください。",
 });
 
@@ -24,7 +25,7 @@ const supervisor = new Agent({
   id: "supervisor",
   name: "Supervisor",
   instructions: "ユーザーの依頼を解釈し、適切なエージェントに委任してください。",
-  model: "google/gemini-3.5-flash",
+  model: haiku,
   agents: { researchAgent, writingAgent },
 });
 

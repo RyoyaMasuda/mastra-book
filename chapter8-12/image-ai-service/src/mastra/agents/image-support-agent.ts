@@ -9,6 +9,7 @@ import { createAnswerRelevancyScorer } from "@mastra/evals/scorers/prebuilt";
 import { PLAN_MODELS, type Plan } from "../../lib/plans";
 import { imageGenerationTool } from "../tools/image-generation-tool";
 import { memory } from "../create-memory";
+import { haiku } from "../../lib/bedrock";
 
 const workspace = new Workspace({
   filesystem: new LocalFilesystem({ basePath: "./workspace" }),
@@ -57,7 +58,7 @@ export const imageSupportAgent = new Agent({
     new TokenLimiterProcessor({ limit: 8000 }),
     new PromptInjectionDetector({
       // より高速でコスト効率の良いモデルを使用してプロンプトインジェクションを検出
-      model: "google/gemini-3.1-flash-lite",
+      model: haiku,
       strategy: "warn",
       threshold: 0.8,
       // プロンプトインジェクション・制約回避・システムプロンプト上書き試行を検出
@@ -76,7 +77,7 @@ export const imageSupportAgent = new Agent({
   scorers: {
     relevancy: {
       scorer: createAnswerRelevancyScorer({
-        model: "google/gemini-3.1-flash-lite",
+        model: haiku,
       }),
       sampling: { type: "ratio", rate: 0.3 },
     },

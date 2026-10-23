@@ -1,11 +1,12 @@
+import { haiku, sonnet } from "./bedrock";
 export const PLANS = {
   free: { label: "Free", monthlyTokenLimit: 10000 },
   pro: { label: "Pro", monthlyTokenLimit: 500000 },
 } as const;
 
 export const PLAN_MODELS = {
-  free: "google/gemini-3.5-flash",
-  pro: "google/gemini-3.1-pro-preview",
+  free: haiku,
+  pro: sonnet,
 } as const;
 
 export type Plan = keyof typeof PLANS;

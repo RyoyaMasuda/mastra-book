@@ -3,12 +3,12 @@
 import "dotenv/config";
 import { Output, generateText, streamText } from "ai";
 import { z } from "zod";
-import { google } from "./01-generate-text.js";
+import { haiku } from "./bedrock.js";
 
 // L97-119: 単純な構造化出力（generateText + Output.object）
 async function runStructuredObject() {
   const { output } = await generateText({
-    model: google("gemini-3.5-flash"),
+    model: haiku,
     output: Output.object({
       schema: z.object({
         recipe: z.object({
@@ -30,7 +30,7 @@ async function runStructuredObject() {
 async function runStructuredArrayStream() {
   // 構造化ストリーム出力の例
   const { partialOutputStream } = streamText({
-    model: google("gemini-3.5-flash"),
+    model: haiku,
     output: Output.array({
       element: z.object({
         location: z.string(),
@@ -66,7 +66,7 @@ declare function updateUI(partial: unknown): void;
 
 async function runStreamingRecipe() {
   const { partialOutputStream } = streamText({
-    model: google("gemini-3.5-flash"),
+    model: haiku,
     output: Output.object({ schema: recipeSchema }),
     prompt: "カルボナーラのレシピを教えてください",
   });

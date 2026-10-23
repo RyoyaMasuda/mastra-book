@@ -2,13 +2,14 @@
 import { Mastra } from "@mastra/core";
 import { CloudflareDeployer } from "@mastra/deployer-cloudflare";
 import { Agent } from "@mastra/core/agent";
+import { bedrock } from "@ai-sdk/amazon-bedrock";
 
 // エージェントを定義
 const testAgent = new Agent({
   id: "test-agent",
   name: "Test Agent",
   instructions: "あなたは親切なアシスタントです。",
-  model: "google/gemini-3.5-flash",
+  model: bedrock("global.anthropic.claude-haiku-5-5"),
 });
 
 // デプロイヤーを指定してMastraインスタンスを作成

@@ -1,4 +1,5 @@
 import { Agent } from "@mastra/core/agent";
+import { sonnet } from "../bedrock";
 
 export const reportAgent = new Agent({
   id: "report-agent",
@@ -27,5 +28,5 @@ export const reportAgent = new Agent({
 
   明確なセクションと見出しでレポートを構造化し、単に事実を列挙するのではなく、
   情報を一貫した物語に統合することに焦点を当ててください。`,
-  model: "google/gemini-3.1-pro-preview",
+  model: sonnet,
 });

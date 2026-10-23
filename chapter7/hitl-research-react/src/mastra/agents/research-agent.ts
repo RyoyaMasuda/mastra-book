@@ -2,6 +2,7 @@ import { Agent } from "@mastra/core/agent";
 import { evaluateResultTool } from "../tools/evaluate-result-tool";
 import { extractLearningsTool } from "../tools/extract-learnings-tool";
 import { searchTool } from "../tools/search-tool";
+import { sonnet } from "../bedrock";
 
 export const researchAgent = new Agent({
   id: "research-agent",
@@ -61,7 +62,7 @@ export const researchAgent = new Agent({
 
   利用可能なすべてのツールを体系的に使用し、フォローアップフェーズの後に停止してください。
   `,
-  model: "google/gemini-3.1-pro-preview",
+  model: sonnet,
   tools: {
     searchTool,
     evaluateResultTool,

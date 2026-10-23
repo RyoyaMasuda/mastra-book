@@ -1,6 +1,7 @@
 import { Memory } from "@mastra/memory";
 // セマンティックリコール用のベクトルストア
 import { LibSQLVector } from "@mastra/libsql";
+import { haiku } from "../lib/bedrock";
 
 export const memory = new Memory({
   // セマンティックリコール用の埋め込みモデル
@@ -15,7 +16,7 @@ export const memory = new Memory({
     lastMessages: 10,
     // タイトル自動生成の設定
     generateTitle: {
-      model: "google/gemini-3.1-flash-lite",
+      model: haiku,
       instructions:
         "ユーザーの最初のメッセージに基づいて、会話の簡潔なタイトルを" +
         "日本語で生成してください（10文字以内）",

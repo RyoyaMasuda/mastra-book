@@ -11,7 +11,9 @@
     "dev": "concurrently \"npx mastra dev\" \"npm run vite:dev\""
   },
   "dependencies": {
+    "@ai-sdk/amazon-bedrock": "^4.0.201",
     "@ai-sdk/react": "^3.0.199",
+    "@aws-sdk/credential-providers": "^3.1156.0",
     "@mastra/ai-sdk": "^1.4.4",
     "@mastra/auth": "^1.0.2",
     "@mastra/core": "^1.41.0",

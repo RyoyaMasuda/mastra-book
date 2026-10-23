@@ -2,6 +2,7 @@
 import { Agent } from "@mastra/core/agent";
 import { Memory } from "@mastra/memory";
 import { LibSQLStore } from "@mastra/libsql";
+import { haiku } from "./bedrock";
 
 // L210-220: Memory + LibSQLStore
 const memory = new Memory({
@@ -15,7 +16,7 @@ const agent = new Agent({
   id: "demo",
   name: "Demo",
   instructions: "demo",
-  model: "google/gemini-3.5-flash",
+  model: haiku,
   memory,
 });
 

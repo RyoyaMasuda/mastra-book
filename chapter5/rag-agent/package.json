@@ -12,6 +12,8 @@
     "node": ">=22.13.0"
   },
   "dependencies": {
+    "@ai-sdk/amazon-bedrock": "^4.0.201",
+    "@aws-sdk/credential-providers": "^3.1156.0",
     "@mastra/core": "^1.41.0",
     "@mastra/libsql": "^1.12.1",
     "@mastra/rag": "^2.2.1",

@@ -7,6 +7,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@ai-sdk/amazon-bedrock": "4.0.201",
     "@mastra/core": "1.41.0",
     "@mastra/deployer-cloudflare": "1.1.42"
   },

@@ -1,6 +1,7 @@
 // 第3章 3.5 Request Context - 原稿 L362-394
 import { Agent } from "@mastra/core/agent";
 import { RequestContext } from "@mastra/core/request-context";
+import { haiku, sonnet } from "./bedrock";
 
 type UserTier = {
   "user-tier": "enterprise" | "standard";
@@ -14,8 +15,8 @@ const agent = new Agent({
   model: ({ requestContext }) => {
     const tier = requestContext.get("user-tier");
     return tier === "enterprise"
-      ? "google/gemini-3.5-flash"
-      : "google/gemini-3.1-flash-lite";
+      ? sonnet
+      : haiku;
   },
 });
 

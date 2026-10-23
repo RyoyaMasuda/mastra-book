@@ -2,13 +2,14 @@
 import { Agent } from "@mastra/core/agent";
 import { createTool } from "@mastra/core/tools";
 import { z } from "zod";
+import { haiku } from "./bedrock";
 
 // L114-123: 最もシンプルなエージェント定義
 export const testAgent = new Agent({
   id: "test-agent",
   name: "Test Agent",
   instructions: "あなたは親切なアシスタントです。",
-  model: "google/gemini-3.5-flash",
+  model: haiku,
 });
 
 // L133-153: ツールの定義（Zodで入出力スキーマを定義）

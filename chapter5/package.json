@@ -6,14 +6,16 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@ai-sdk/amazon-bedrock": "^4.0.201",
+    "@aws-sdk/credential-providers": "^3.1156.0",
     "@mastra/core": "^1.41.0",
-    "@mastra/rag": "^2.2.1",
     "@mastra/libsql": "^1.12.1",
     "@mastra/pg": "^1.12.1",
+    "@mastra/rag": "^2.2.1",
     "ai": "^6.0.197"
   },
   "devDependencies": {
-    "typescript": "^6.0.3",
-    "@types/node": "^24.13.1"
+    "@types/node": "^24.13.1",
+    "typescript": "^6.0.3"
   }
 }
