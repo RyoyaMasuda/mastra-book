@@ -1,0 +1,23 @@
+# 依存パッケージ
+node_modules/
+
+# 環境変数（秘密情報）。.env.example は残す
+.env
+.env.*
+!.env.example
+
+# ビルド成果物
+.next/
+dist/
+.mastra/output/
+.mastra/.build/
+*.tsbuildinfo
+
+# ローカルDB・生成画像
+*.db
+*.db-*
+public/generated-images/
+
+# OS・エディタ
+.DS_Store
+.idea/
