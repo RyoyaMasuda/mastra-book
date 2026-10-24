@@ -20,7 +20,7 @@
 cd samples/chapter13/<subdir>
 npm install
 cp .env.example .env
-# .env に GOOGLE_GENERATIVE_AI_API_KEY を記入
+# .env に AWS の認証情報を記入（ローカルは AWS_PROFILE でも可）
 # （agentcore はBedrock、azure はAzure OpenAIを使うため、この変数は不要）
 ```
 
@@ -37,7 +37,7 @@ npm run dev           # Mastra Studio がローカル起動（http://localhost:4
 # 実デプロイ
 npx mastra auth login
 npx mastra server deploy
-npx mastra server env set GOOGLE_GENERATIVE_AI_API_KEY <値>
+npx mastra server env set AWS_ACCESS_KEY_ID <値>
 ```
 
 エージェントを1つだけ定義した最小構成です。デプロイ後は `https://<プロジェクト名>.server.mastra.cloud` で API が公開されます。
@@ -50,7 +50,7 @@ npm run typecheck     # tsc --noEmit
 npm run build         # mastra build → .mastra/output/ と wrangler.jsonc 生成
 npx wrangler login
 npx wrangler deploy   # 実デプロイ（要 Cloudflareアカウント）
-npx wrangler secret put GOOGLE_GENERATIVE_AI_API_KEY
+npx wrangler secret put AWS_ACCESS_KEY_ID
 ```
 
 `CloudflareDeployer` を組み込んだ最小構成です。`mastra build` がプロジェクトルートに `wrangler.jsonc` を生成するため、`wrangler deploy` は `--config` なしでそのまま実行できます。Cloudflare の Workers AI モデルを使いたい場合は、`src/mastra/index.ts` の `model` を `cloudflare-workers-ai/@cf/openai/gpt-oss-20b` のような文字列にし、環境変数 `CLOUDFLARE_API_KEY` と `CLOUDFLARE_ACCOUNT_ID` を設定してください。

@@ -21,7 +21,7 @@
 cd samples/chapter13/cloudrun
 npm install
 cp .env.example .env
-# .env を開いて GOOGLE_GENERATIVE_AI_API_KEY を実際のキーに書き換える
+# .env を開いて AWS の認証情報（AWS_ACCESS_KEY_ID / AWS_SECRET_ACCESS_KEY）を実際の値に書き換える
 ```
 
 API キーは Google AI Studio から発行できます（書籍の付録2を参照）。
@@ -39,7 +39,9 @@ npm run build
 ```bash
 docker build -t mastra-cloudrun-sample .
 docker run --rm -p 8080:8080 \
-  -e GOOGLE_GENERATIVE_AI_API_KEY=$GOOGLE_GENERATIVE_AI_API_KEY \
+  -e AWS_REGION=ap-northeast-1 \
+  -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
+  -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
   mastra-cloudrun-sample
 ```
 
@@ -53,7 +55,7 @@ gcloud config set project <プロジェクトID>
 gcloud run deploy mastra-app --source . --region asia-northeast1 --allow-unauthenticated
 ```
 
-`--source .` を指定すると、カレントディレクトリの `Dockerfile` を使って Cloud Build がイメージをビルドし、Artifact Registry へのプッシュとデプロイがまとめて行われます。シークレットは `--set-env-vars GOOGLE_GENERATIVE_AI_API_KEY=<値>` で渡すか、Google Cloud Secret Manager と連携します。詳しくは本書 13.5節「Cloud Runへのデプロイ」を参照してください。
+`--source .` を指定すると、カレントディレクトリの `Dockerfile` を使って Cloud Build がイメージをビルドし、Artifact Registry へのプッシュとデプロイがまとめて行われます。シークレットは `--set-env-vars AWS_ACCESS_KEY_ID=<値>,AWS_SECRET_ACCESS_KEY=<値>,AWS_REGION=ap-northeast-1` で渡すか、Google Cloud Secret Manager と連携します。詳しくは本書 13.5節「Cloud Runへのデプロイ」を参照してください。
 
 ## 前提環境
 

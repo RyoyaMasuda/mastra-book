@@ -17,6 +17,9 @@
   "alias": {
     "typescript": "./.mastra/output/typescript-stub.mjs",
     "execa": "./execa-stub.mjs",
-    "readable-stream": "./readable-stream-stub.mjs"
+    "readable-stream": "./readable-stream-stub.mjs",
+    "module": "./.mastra/output/module-stub.mjs",
+    "node:module": "./.mastra/output/module-stub.mjs",
+    "@opentelemetry/api": "./.mastra/output/opentelemetry-api-stub.mjs"
   }
 }

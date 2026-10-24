@@ -8,12 +8,12 @@
   },
   "dependencies": {
     "@ai-sdk/amazon-bedrock": "4.0.201",
-    "@mastra/core": "1.41.0",
-    "@mastra/deployer-cloudflare": "1.1.42"
+    "@mastra/core": "1.79.0",
+    "@mastra/deployer-cloudflare": "1.2.38"
   },
   "devDependencies": {
     "@types/node": "22.19.20",
-    "mastra": "1.12.2",
+    "mastra": "1.35.0",
     "typescript": "6.0.3",
     "wrangler": "4.98.0"
   }

@@ -26,7 +26,7 @@ npm install
 
 ```bash
 cp .env.example .env
-# .env を開いて GOOGLE_GENERATIVE_AI_API_KEY を実際のキーに書き換える
+# .env を開いて AWS_PROFILE（ローカル用）を確認する
 ```
 
 API キーは Google AI Studio から発行できます（書籍の付録2を参照）。
@@ -44,7 +44,9 @@ Mastra Studio が起動し、`http://localhost:4111` でエージェントを試
 ```bash
 npx mastra auth login
 npx mastra server deploy
-npx mastra server env set GOOGLE_GENERATIVE_AI_API_KEY <値>
+npx mastra server env set AWS_ACCESS_KEY_ID <値>
+npx mastra server env set AWS_SECRET_ACCESS_KEY <値>
+npx mastra server env set AWS_REGION ap-northeast-1
 ```
 
 詳しくは書籍 13.1節「Mastra Serverへのデプロイ」を参照してください。デプロイ後は `https://<プロジェクト名>.server.mastra.cloud` の形式で API が公開されます。

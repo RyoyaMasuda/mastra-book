@@ -21,7 +21,7 @@
 cd samples/chapter13/cloudflare
 npm install
 cp .env.example .env
-# .env を開いて GOOGLE_GENERATIVE_AI_API_KEY を実際のキーに書き換える
+# .env を開いて AWS の認証情報（AWS_ACCESS_KEY_ID / AWS_SECRET_ACCESS_KEY）を実際の値に書き換える
 ```
 
 API キーは Google AI Studio から発行できます（書籍の付録2を参照）。
@@ -46,7 +46,9 @@ npm run typecheck
 npx wrangler login
 npx mastra build
 npx wrangler deploy
-npx wrangler secret put GOOGLE_GENERATIVE_AI_API_KEY
+npx wrangler secret put AWS_ACCESS_KEY_ID
+npx wrangler secret put AWS_SECRET_ACCESS_KEY
+npx wrangler secret put AWS_REGION
 ```
 
 `wrangler.jsonc` がプロジェクトルートに生成されるため、`wrangler deploy` は `--config` を付けずにそのまま実行できます。シークレットは `wrangler.jsonc` には書き出されないので、`wrangler secret put` で別途登録します。詳しくは本書 13.2節「Cloudflare Workersへのデプロイ」を参照してください。
