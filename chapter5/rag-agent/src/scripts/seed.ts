@@ -2,7 +2,7 @@ import { MDocument } from "@mastra/rag";
 import fs from "fs";
 import { mastra } from "../mastra";
 import { embedMany } from "ai";
-import { ModelRouterEmbeddingModel } from "@mastra/core/llm";
+import { embedder } from "../mastra/bedrock";
 
 // 取り込むドキュメントの一覧
 const documents = [
@@ -24,7 +24,7 @@ const vectorStore = mastra.getVector("libSqlVector");
 
 await vectorStore.createIndex({
   indexName: "company_docs",
-  dimension: 3072,
+  dimension: 1536,
 });
 
 for (const { filePath, sourceName } of documents) {
@@ -42,9 +42,7 @@ for (const { filePath, sourceName } of documents) {
   console.log(`${sourceName}: ${chunks.length}チャンク`);
 
   const { embeddings } = await embedMany({
-    model: new ModelRouterEmbeddingModel(
-      "google/gemini-embedding-001",
-    ),
+    model: embedder,
     values: chunks.map((chunk) => chunk.text),
   });
 

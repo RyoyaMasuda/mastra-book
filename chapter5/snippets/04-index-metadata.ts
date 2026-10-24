@@ -14,7 +14,7 @@ async function setupIndexAndUpsert() {
   const vectorStore = mastra.getVector("libSqlVector");
   await vectorStore.createIndex({
     indexName: "company_docs",
-    dimension: 3072,
+    dimension: 1536,
   });
 
   // メタデータの付与

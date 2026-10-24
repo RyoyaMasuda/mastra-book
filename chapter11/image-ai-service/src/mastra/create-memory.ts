@@ -2,6 +2,7 @@ import { Memory } from "@mastra/memory";
 // セマンティックリコール用のベクトルストア／バッチ評価用のストア
 import { LibSQLVector, LibSQLStore } from "@mastra/libsql";
 import { haiku } from "../lib/bedrock";
+import { embedder } from "../lib/bedrock";
 
 export const memory = new Memory({
   // 第11章で追加：バッチ評価実行時にストレージを継承させるため明示
@@ -10,7 +11,7 @@ export const memory = new Memory({
     url: "file:./local.db",
   }),
   // セマンティックリコール用の埋め込みモデル
-  embedder: "google/gemini-embedding-001",
+  embedder,
   // ベクトルデータの保存先
   vector: new LibSQLVector({
     id: "image-support-agent-vector",

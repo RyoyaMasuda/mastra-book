@@ -16,7 +16,7 @@
 - スレッド一覧サイドバー：新規作成・選択・削除をUIから操作（第10章 10.5節）
 - スレッドタイトルの自動生成：最初のメッセージから Gemini Flash Lite が日本語タイトルを付与（第10章 10.7〜10.8節）
 - ワーキングメモリ：ユーザーの名前・言語・画像の好みなどを Markdown テンプレートで永続化（第10章 10.10節）
-- セマンティックリコール：過去のメッセージを `gemini-embedding-001` で埋め込み、`local.db` のベクトルストアに保存して類似検索（第10章 10.12節）
+- セマンティックリコール：過去のメッセージを Bedrock の Cohere Embed v4 (`cohere.embed-v4:0`) で埋め込み、`local.db` のベクトルストアに保存して類似検索（第10章 10.12節）
 - オブザーバビリティ：`MastraStorageExporter`（Mastra Studio）と `LangfuseExporter`（Langfuse）の併用でエージェントとツールのトレースを記録（第11章 11.3〜11.4節）
 - 画像生成ツールのカスタムスパン：生成画像のBase64データとユーザーの日本語入力をツールスパンのメタデータに付与（第11章 11.9節）
 - バッチ評価：`@mastra/evals` の `createAnswerRelevancyScorer` で固定テストケースの応答品質を計測する `src/evals/prompt-quality.ts`（第11章 11.7節）

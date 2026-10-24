@@ -2,14 +2,14 @@
 // chapter5/rag-agent/src/mastra/agents/rag-agent.ts
 import { Agent } from "@mastra/core/agent";
 import { createVectorQueryTool } from "@mastra/rag";
-import { ModelRouterEmbeddingModel } from "@mastra/core/llm";
 import { LIBSQL_PROMPT } from "@mastra/libsql";
 import { haiku } from "./bedrock";
+import { embedder } from "./bedrock";
 
 const ragTool = createVectorQueryTool({
   vectorStoreName: "libSqlVector",
   indexName: "company_docs",
-  model: new ModelRouterEmbeddingModel("google/gemini-embedding-001"),
+  model: embedder,
   enableFilter: true,
   description:
     "社内ドキュメント（FAQ、運用マニュアル、オンボーディングガイド）から関連情報を検索します",

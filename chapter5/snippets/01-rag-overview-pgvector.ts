@@ -7,7 +7,7 @@ import { MDocument } from "@mastra/rag";
 
 // 補完: 原稿では import 順が3.の途中に挿入されているが、
 // TypeScriptとして成立させるためファイル先頭にまとめている
-import { ModelRouterEmbeddingModel } from "@mastra/core/llm";
+import { embedder } from "./bedrock";
 
 // 補完: queryVector は型チェック用に number[] として宣言
 declare const queryVector: number[];
@@ -26,7 +26,7 @@ async function ragOverviewPgvector() {
   // 3. 埋め込み（embedding）を生成
   const { embeddings } = await embedMany({
     values: chunks.map((chunk) => chunk.text),
-    model: new ModelRouterEmbeddingModel("google/gemini-embedding-001"),
+    model: embedder,
   });
 
   // 4. ベクトルデータベースに保存

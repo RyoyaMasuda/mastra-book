@@ -2,10 +2,11 @@ import { Memory } from "@mastra/memory";
 // セマンティックリコール用のベクトルストア
 import { LibSQLVector } from "@mastra/libsql";
 import { haiku } from "../lib/bedrock";
+import { embedder } from "../lib/bedrock";
 
 export const memory = new Memory({
   // セマンティックリコール用の埋め込みモデル
-  embedder: "google/gemini-embedding-001",
+  embedder,
   // ベクトルデータの保存先
   vector: new LibSQLVector({
     id: "image-support-agent-vector",
