@@ -9,14 +9,14 @@ node_modules/
 # ビルド成果物
 .next/
 dist/
-.mastra/output/
-.mastra/.build/
+**/.mastra/output/
+**/.mastra/.build/
 *.tsbuildinfo
 
 # ローカルDB・生成画像
 *.db
 *.db-*
-public/generated-images/
+**/public/generated-images/
 
 # OS・エディタ
 .DS_Store
