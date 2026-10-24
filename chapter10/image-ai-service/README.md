@@ -9,19 +9,19 @@
   - `UnicodeNormalizer`（Unicode正規化／制御文字除去／空白圧縮）
   - `TokenLimiterProcessor`（1メッセージあたりのトークン数制限）
   - `PromptInjectionDetector`（プロンプトインジェクション検出 / `strategy: "warn"`）
-- Gemini ネイティブ画像生成モデルを呼び出す `imageGenerationTool`（第9章 9.6節）
+- Bedrock の Stability AI（Stable Image Core / Ultra）で画像を生成する `imageGenerationTool`（第9章 9.6節）
 - Agent Skills によるスタイル別プロンプトテンプレートの注入（`workspace/skills/`）
 - ツール呼び出しと生成画像をチャット内に表示する `ChatPanel` / `ToolPartView`（第9章 9.7節）
 - 一般記憶（会話履歴）：直近10件をコンテキストに含め、`mastra.db` に永続化（第10章 10.4節）
 - スレッド一覧サイドバー：新規作成・選択・削除をUIから操作（第10章 10.5節）
-- スレッドタイトルの自動生成：最初のメッセージから Gemini Flash Lite が日本語タイトルを付与（第10章 10.7〜10.8節）
+- スレッドタイトルの自動生成：最初のメッセージから Claude Haiku 5.5 が日本語タイトルを付与（第10章 10.7〜10.8節）
 - ワーキングメモリ：ユーザーの名前・言語・画像の好みなどを Markdown テンプレートで永続化（第10章 10.10節）
 - セマンティックリコール：過去のメッセージを Bedrock の Cohere Embed v4 (`cohere.embed-v4:0`) で埋め込み、`local.db` のベクトルストアに保存して類似検索（第10章 10.12節）
 
 ## 前提環境
 
 - Node.js 24 以上
-- Google Gemini API キー（[Google AI Studio](https://aistudio.google.com) から発行）
+- AWS アカウントと認証情報（`AWS_PROFILE`）。Bedrock で Claude と Cohere Embed、米国リージョン（`us-west-2`）で Stability AI を使える状態にしておく
 - macOS の `sqlite3` コマンド（Windows の場合は SQLite 公式から取得）
 
 ## セットアップ手順（ローカル）

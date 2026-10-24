@@ -58,7 +58,7 @@ npx skills add vercel/ai-elements
 
 スニペットは型チェック用にエクスポート関数の形でまとめています。実際にエージェントを動かしたい場合は、以下を準備してください。
 
-- `.env` に LLM プロバイダーの API キーを設定（Google Gemini なら `GOOGLE_GENERATIVE_AI_API_KEY`、Anthropic なら `ANTHROPIC_API_KEY`）
+- `.env` に AWS の認証情報（`AWS_PROFILE` と `AWS_REGION`）を設定（LLM は Amazon Bedrock の Claude を利用）
 - 各スニペットの末尾に呼び出し処理を追加するか、別ファイルから `import` して呼び出す
 
 ```bash

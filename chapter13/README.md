@@ -21,10 +21,10 @@ cd samples/chapter13/<subdir>
 npm install
 cp .env.example .env
 # .env に AWS の認証情報を記入（ローカルは AWS_PROFILE でも可）
-# （agentcore はBedrock、azure はAzure OpenAIを使うため、この変数は不要）
+# （azure は Azure OpenAI を使うため、AWS の変数は不要）
 ```
 
-API キーは Google AI Studio から発行できます（書籍の付録2を参照）。`azure/` だけは Azure OpenAI を使うため、`.env` に `AZURE_OPENAI_RESOURCE_NAME` と `AZURE_OPENAI_API_KEY` を設定します（詳細は `azure/README.md` 参照）。なお `agentcore/` は AgentCore CLI でプロジェクトを生成する手順のため、この共通の事前準備（トップレベルでの `npm install` ・ `.env`）は当てはまりません。`agentcore/README.md` を参照してください。
+AWS の認証情報の設定は書籍の付録2を参照してください。`azure/` だけは Azure OpenAI を使うため、`.env` に `AZURE_OPENAI_RESOURCE_NAME` と `AZURE_OPENAI_API_KEY` を設定します（詳細は `azure/README.md` 参照）。なお `agentcore/` は AgentCore CLI でプロジェクトを生成する手順のため、この共通の事前準備（トップレベルでの `npm install` ・ `.env`）は当てはまりません。`agentcore/README.md` を参照してください。
 
 ## サブディレクトリ別の動作確認
 

@@ -9,14 +9,14 @@
   - `UnicodeNormalizer`（Unicode正規化／制御文字除去／空白圧縮）
   - `TokenLimiterProcessor`（1メッセージあたりのトークン数制限）
   - `PromptInjectionDetector`（プロンプトインジェクション検出 / `strategy: "warn"`）
-- Gemini ネイティブ画像生成モデルを呼び出す `imageGenerationTool`（第9章 9.6節）
+- Bedrock の Stability AI（Stable Image Core / Ultra）で画像を生成する `imageGenerationTool`（第9章 9.6節）
 - Agent Skills によるスタイル別プロンプトテンプレートの注入（`workspace/skills/`）
 - ツール呼び出しと生成画像をチャット内に表示する `ChatPanel` / `ToolPartView`（第9章 9.7節）
 
 ## 前提環境
 
 - Node.js 24 以上
-- Google Gemini API キー（[Google AI Studio](https://aistudio.google.com) から発行）
+- AWS アカウントと認証情報（`AWS_PROFILE`）。Bedrock で Claude と Cohere Embed、米国リージョン（`us-west-2`）で Stability AI を使える状態にしておく
 - macOS の `sqlite3` コマンド（Windows の場合は SQLite 公式から取得）
 
 ## セットアップ手順（ローカル）

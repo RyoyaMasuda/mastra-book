@@ -18,10 +18,11 @@ npm create mastra@1.12.2
 cp .env.example .env
 ```
 
-`.env` にはGoogle AI StudioのAPIキーを設定します。
+`.env` にはAWSの認証情報（Amazon Bedrockを利用）を設定します。
 
 ```bash
-GOOGLE_API_KEY=your-api-key
+AWS_PROFILE=your-profile-name
+AWS_REGION=ap-northeast-1
 ```
 
 ## 6.5 検索ワークフローの実装
@@ -29,7 +30,8 @@ GOOGLE_API_KEY=your-api-key
 ### Tavily APIキーの追加
 
 ```bash
-GOOGLE_API_KEY=your-api-key
+AWS_PROFILE=your-profile-name
+AWS_REGION=ap-northeast-1
 TAVILY_API_KEY=your-api-key
 ```
 

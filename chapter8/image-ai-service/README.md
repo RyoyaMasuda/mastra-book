@@ -11,7 +11,7 @@
 ## 前提環境
 
 - Node.js 24 以上
-- Google Gemini API キー（[Google AI Studio](https://aistudio.google.com) から発行）
+- AWS アカウントと認証情報（`AWS_PROFILE`）。Bedrock で Claude を使える状態にしておく
 - macOS の `sqlite3` コマンド（Windows の場合は SQLite 公式から取得）
 
 ## セットアップ手順（ローカル）

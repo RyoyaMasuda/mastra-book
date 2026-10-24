@@ -8,7 +8,7 @@
 |------|-----|
 | エントリーポイント | `src/mastra/index.ts` |
 | デプロイヤー | `@mastra/deployer-cloudflare` の `CloudflareDeployer` |
-| 利用モデル | `google/gemini-3-flash-preview`（Mastraのモデルルーター） |
+| 利用モデル | `bedrock("global.anthropic.claude-haiku-5-5")`（AI SDK の Bedrock プロバイダー） |
 | ビルドコマンド | `npm run build`（`mastra build` で `.mastra/output/` に出力） |
 | 型チェック | `npm run typecheck`（`tsc --noEmit`） |
 | Wrangler 設定 | `wrangler.jsonc`（`mastra build` 時にプロジェクトルートへ自動生成・更新される） |
@@ -24,7 +24,7 @@ cp .env.example .env
 # .env を開いて AWS の認証情報（AWS_ACCESS_KEY_ID / AWS_SECRET_ACCESS_KEY）を実際の値に書き換える
 ```
 
-API キーは Google AI Studio から発行できます（書籍の付録2を参照）。
+Amazon Bedrock を使うため AWS の認証情報が必要です（書籍の付録2を参照）。Cloudflare Workers には AWS プロファイルが無いため、アクセスキーで認証します。
 
 ### 2. ビルド（Cloudflare Workers 向けバンドル）
 

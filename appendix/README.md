@@ -30,15 +30,21 @@ GitHubの新規リポジトリ作成画面（ https://github.com/new ）で、�
 
 リポジトリ画面の `Code` ボタンから `Codespaces` タブを選び、`Create codespace on main` をクリックします。起動後は画面下部のターミナルで、各章READMEや書籍本文に掲載しているコマンドを実行します。
 
-## 付録2 Google AI Studio APIキーの取得
+## 付録2 AWS（Amazon Bedrock）認証情報の設定
 
-本書のハンズオンでは、LLMおよび埋め込みモデルとしてGoogle Geminiを使います。Google AI Studio（ https://aistudio.google.com ）でAPIキーを作成し、各プロジェクトの `.env` に次の環境変数として設定します。
+本書のハンズオンでは、LLMと埋め込みモデルにAmazon Bedrockを使います（Claude、Cohere Embed v4）。画像生成だけはStability AIを使うため、米国リージョン（`us-west-2`）のBedrockを呼び出します。
+
+ローカルではAWS CLIのプロファイル（`aws configure sso` などで作成）を使い、各プロジェクトの `.env` に次の環境変数を設定します。
 
 ```bash
-GOOGLE_GENERATIVE_AI_API_KEY=your-api-key
+AWS_PROFILE=your-profile-name
+AWS_REGION=ap-northeast-1
+AWS_IMAGE_REGION=us-west-2
 ```
 
-APIキーはパスワードと同じ機密情報です。第三者に共有せず、`.env` がGitHubにコミットされないようにしてください。
+Cloudflare WorkersやCloud Runなど、プロファイルが使えない環境では `AWS_ACCESS_KEY_ID` と `AWS_SECRET_ACCESS_KEY` を環境変数（シークレット）として渡します。
+
+アクセスキーはパスワードと同じ機密情報です。第三者に共有せず、`.env` がGitHubにコミットされないようにしてください。
 
 ## 付録3 Tavily APIキーの取得
 

@@ -32,7 +32,7 @@ npm run typecheck   # tsc --noEmit
 
 スニペットは型チェック用にエクスポート関数の形でまとめています。実際にエージェントを動かしたい場合は、以下を準備してください。
 
-- `.env` に LLM プロバイダー（書籍では Vercel AI SDK Gateway 経由で Google Gemini を利用）の API キーを設定
+- `.env` に AWS の認証情報（`AWS_PROFILE` と `AWS_REGION`）を設定（LLM は Amazon Bedrock の Claude を利用）
 - 各スニペットの末尾に呼び出し処理を追加するか、別ファイルから `import` して呼び出す
 
 ```bash

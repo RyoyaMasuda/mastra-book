@@ -63,7 +63,7 @@ src/
 
 スニペットは型チェック用にエクスポート関数の形でまとめています。実際にエージェントやワークフローを動かしたい場合は、以下を準備してください。
 
-- `.env` に LLM プロバイダー（書籍では Google AI Studio を利用）の API キーを設定（環境変数 `GOOGLE_GENERATIVE_AI_API_KEY` など）
+- `.env` に AWS の認証情報（`AWS_PROFILE` と `AWS_REGION`）を設定（LLM は Amazon Bedrock の Claude を利用）
 - 各スニペットの末尾に呼び出し処理を追加するか、別ファイルから `import` して呼び出す
 
 ```bash

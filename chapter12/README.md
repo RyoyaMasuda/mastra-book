@@ -31,7 +31,10 @@ Vercelに設定する主な環境変数です。
 | `TURSO_VECTOR_DATABASE_URL` | ベクトルDB（image-app-vector）のURL |
 | `TURSO_VECTOR_AUTH_TOKEN` | ベクトルDBのトークン |
 | `BLOB_READ_WRITE_TOKEN` | Vercel Blobのアクセストークン |
-| `GOOGLE_GENERATIVE_AI_API_KEY` | Google Gemini APIキー |
+| `AWS_ACCESS_KEY_ID` | AWS（Bedrock）のアクセスキーID |
+| `AWS_SECRET_ACCESS_KEY` | AWS（Bedrock）のシークレットアクセスキー |
+| `AWS_REGION` | Bedrock のリージョン（`ap-northeast-1`） |
+| `AWS_IMAGE_REGION` | 画像生成（Stability AI）のリージョン（`us-west-2`） |
 | `BETTER_AUTH_SECRET` | Better Authのシークレット |
 | `BETTER_AUTH_URL` | Better Authが参照するアプリURL |
 | `NEXT_PUBLIC_APP_URL` | ブラウザ側の認証クライアントが参照するURL |

@@ -8,7 +8,7 @@
 |------|-----|
 | エントリーポイント | `src/mastra/index.ts` |
 | エージェント | `@mastra/core/agent` の `Agent` を1つだけ定義 |
-| 利用モデル | `google/gemini-3-flash-preview`（Mastraのモデルルーター） |
+| 利用モデル | `bedrock("global.anthropic.claude-haiku-5-5")`（AI SDK の Bedrock プロバイダー） |
 | ローカル起動 | `npm run dev`（`mastra dev`） |
 | ビルド | `npm run build`（`mastra build`） |
 | 型チェック | `npm run typecheck`（`tsc --noEmit`） |
@@ -29,7 +29,7 @@ cp .env.example .env
 # .env を開いて AWS_PROFILE（ローカル用）を確認する
 ```
 
-API キーは Google AI Studio から発行できます（書籍の付録2を参照）。
+Amazon Bedrock を使うため AWS の認証情報が必要です（書籍の付録2を参照）。
 
 ### 3. ローカルで動作確認（任意）
 

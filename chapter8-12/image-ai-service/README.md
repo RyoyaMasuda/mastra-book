@@ -10,7 +10,7 @@
   - `TokenLimiterProcessor`（1メッセージあたりのトークン数制限）
   - `PromptInjectionDetector`（プロンプトインジェクション検出 / `strategy: "warn"`）
 - Agent Skills によるスタイル別プロンプトテンプレートの注入
-- Gemini ネイティブ画像生成モデルを呼び出す `imageGenerationTool`
+- Bedrock の Stability AI（Stable Image Core / Ultra）で画像を生成する `imageGenerationTool`
 - ツール呼び出しと生成画像をチャット内に表示する `ChatPanel` / `ToolPartView`
 - チャット履歴／スレッド一覧／タイトル自動生成／ワーキングメモリ／セマンティックリコール
 - Langfuse へのトレース送信（環境別フィルタ対応）
@@ -20,7 +20,7 @@
 ## 前提環境
 
 - Node.js 24 以上
-- Google Gemini API キー（[Google AI Studio](https://aistudio.google.com) から発行）
+- AWS アカウントと認証情報（`AWS_PROFILE`）。Bedrock で Claude と Cohere Embed、米国リージョン（`us-west-2`）で Stability AI を使える状態にしておく
 - Langfuse アカウント（評価／トレース確認時に使用、無料プランで可）
 - macOS の `sqlite3` コマンド（Windows の場合は SQLite 公式から取得）
 - Turso アカウント（Vercel デプロイ時のみ）
@@ -92,7 +92,7 @@ npm run build
 
 ## バッチ評価の実行
 
-`src/evals/prompt-quality.ts` を `tsx` で実行すると、英語プロンプト品質のバッチ評価が走ります。Langfuse / Gemini API キーが必要です。
+`src/evals/prompt-quality.ts` を `tsx` で実行すると、英語プロンプト品質のバッチ評価が走ります。Langfuse / AWS 認証情報が必要です。
 
 ```bash
 npm run eval
@@ -107,7 +107,7 @@ npm run eval
 1. Turso で 3 つのデータベース（`image-app-auth` / `image-app-mastra` / `image-app-vector`）を作成し、それぞれの接続URLとトークンをメモする
 2. 認証DB（`image-app-auth`）に対して `npx auth@latest migrate` を環境変数付きで実行し、 `token_usage` テーブルも追加する
 3. リポジトリを GitHub にプッシュし、Vercel から Import する
-4. Vercel の「Environment Variables」画面に `.env.example` の各環境変数（Turso 系／Langfuse／Better Auth／Google Gemini）を登録する
+4. Vercel の「Environment Variables」画面に `.env.example` の各環境変数（Turso 系／Langfuse／Better Auth／AWS 認証情報）を登録する
 5. 初回デプロイ後、Vercel Storage で Blob ストアを作成して `BLOB_READ_WRITE_TOKEN` を取得し、`BETTER_AUTH_URL` を確定 URL に更新して再デプロイする
 
 これらの環境変数が揃うと、Turso と Vercel Blob への切り替えが自動で行われます。
